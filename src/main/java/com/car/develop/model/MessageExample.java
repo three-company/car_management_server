@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author  zxs
- * @date  2020/5/13 11:06 上午
+ * @date  2020/5/13 4:35 下午
  */
 public class MessageExample {
     protected String orderByClause;
@@ -439,143 +439,73 @@ public class MessageExample {
             return (Criteria) this;
         }
 
-        public Criteria andSitemesIdOneIsNull() {
-            addCriterion("siteMes_id_one is null");
+        public Criteria andSitemesIdIsNull() {
+            addCriterion("siteMes_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andSitemesIdOneIsNotNull() {
-            addCriterion("siteMes_id_one is not null");
+        public Criteria andSitemesIdIsNotNull() {
+            addCriterion("siteMes_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSitemesIdOneEqualTo(String value) {
-            addCriterion("siteMes_id_one =", value, "sitemesIdOne");
+        public Criteria andSitemesIdEqualTo(String value) {
+            addCriterion("siteMes_id =", value, "sitemesId");
             return (Criteria) this;
         }
 
-        public Criteria andSitemesIdOneNotEqualTo(String value) {
-            addCriterion("siteMes_id_one <>", value, "sitemesIdOne");
+        public Criteria andSitemesIdNotEqualTo(String value) {
+            addCriterion("siteMes_id <>", value, "sitemesId");
             return (Criteria) this;
         }
 
-        public Criteria andSitemesIdOneGreaterThan(String value) {
-            addCriterion("siteMes_id_one >", value, "sitemesIdOne");
+        public Criteria andSitemesIdGreaterThan(String value) {
+            addCriterion("siteMes_id >", value, "sitemesId");
             return (Criteria) this;
         }
 
-        public Criteria andSitemesIdOneGreaterThanOrEqualTo(String value) {
-            addCriterion("siteMes_id_one >=", value, "sitemesIdOne");
+        public Criteria andSitemesIdGreaterThanOrEqualTo(String value) {
+            addCriterion("siteMes_id >=", value, "sitemesId");
             return (Criteria) this;
         }
 
-        public Criteria andSitemesIdOneLessThan(String value) {
-            addCriterion("siteMes_id_one <", value, "sitemesIdOne");
+        public Criteria andSitemesIdLessThan(String value) {
+            addCriterion("siteMes_id <", value, "sitemesId");
             return (Criteria) this;
         }
 
-        public Criteria andSitemesIdOneLessThanOrEqualTo(String value) {
-            addCriterion("siteMes_id_one <=", value, "sitemesIdOne");
+        public Criteria andSitemesIdLessThanOrEqualTo(String value) {
+            addCriterion("siteMes_id <=", value, "sitemesId");
             return (Criteria) this;
         }
 
-        public Criteria andSitemesIdOneLike(String value) {
-            addCriterion("siteMes_id_one like", value, "sitemesIdOne");
+        public Criteria andSitemesIdLike(String value) {
+            addCriterion("siteMes_id like", value, "sitemesId");
             return (Criteria) this;
         }
 
-        public Criteria andSitemesIdOneNotLike(String value) {
-            addCriterion("siteMes_id_one not like", value, "sitemesIdOne");
+        public Criteria andSitemesIdNotLike(String value) {
+            addCriterion("siteMes_id not like", value, "sitemesId");
             return (Criteria) this;
         }
 
-        public Criteria andSitemesIdOneIn(List<String> values) {
-            addCriterion("siteMes_id_one in", values, "sitemesIdOne");
+        public Criteria andSitemesIdIn(List<String> values) {
+            addCriterion("siteMes_id in", values, "sitemesId");
             return (Criteria) this;
         }
 
-        public Criteria andSitemesIdOneNotIn(List<String> values) {
-            addCriterion("siteMes_id_one not in", values, "sitemesIdOne");
+        public Criteria andSitemesIdNotIn(List<String> values) {
+            addCriterion("siteMes_id not in", values, "sitemesId");
             return (Criteria) this;
         }
 
-        public Criteria andSitemesIdOneBetween(String value1, String value2) {
-            addCriterion("siteMes_id_one between", value1, value2, "sitemesIdOne");
+        public Criteria andSitemesIdBetween(String value1, String value2) {
+            addCriterion("siteMes_id between", value1, value2, "sitemesId");
             return (Criteria) this;
         }
 
-        public Criteria andSitemesIdOneNotBetween(String value1, String value2) {
-            addCriterion("siteMes_id_one not between", value1, value2, "sitemesIdOne");
-            return (Criteria) this;
-        }
-
-        public Criteria andSitemesIdTwoIsNull() {
-            addCriterion("siteMes_id_two is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSitemesIdTwoIsNotNull() {
-            addCriterion("siteMes_id_two is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSitemesIdTwoEqualTo(String value) {
-            addCriterion("siteMes_id_two =", value, "sitemesIdTwo");
-            return (Criteria) this;
-        }
-
-        public Criteria andSitemesIdTwoNotEqualTo(String value) {
-            addCriterion("siteMes_id_two <>", value, "sitemesIdTwo");
-            return (Criteria) this;
-        }
-
-        public Criteria andSitemesIdTwoGreaterThan(String value) {
-            addCriterion("siteMes_id_two >", value, "sitemesIdTwo");
-            return (Criteria) this;
-        }
-
-        public Criteria andSitemesIdTwoGreaterThanOrEqualTo(String value) {
-            addCriterion("siteMes_id_two >=", value, "sitemesIdTwo");
-            return (Criteria) this;
-        }
-
-        public Criteria andSitemesIdTwoLessThan(String value) {
-            addCriterion("siteMes_id_two <", value, "sitemesIdTwo");
-            return (Criteria) this;
-        }
-
-        public Criteria andSitemesIdTwoLessThanOrEqualTo(String value) {
-            addCriterion("siteMes_id_two <=", value, "sitemesIdTwo");
-            return (Criteria) this;
-        }
-
-        public Criteria andSitemesIdTwoLike(String value) {
-            addCriterion("siteMes_id_two like", value, "sitemesIdTwo");
-            return (Criteria) this;
-        }
-
-        public Criteria andSitemesIdTwoNotLike(String value) {
-            addCriterion("siteMes_id_two not like", value, "sitemesIdTwo");
-            return (Criteria) this;
-        }
-
-        public Criteria andSitemesIdTwoIn(List<String> values) {
-            addCriterion("siteMes_id_two in", values, "sitemesIdTwo");
-            return (Criteria) this;
-        }
-
-        public Criteria andSitemesIdTwoNotIn(List<String> values) {
-            addCriterion("siteMes_id_two not in", values, "sitemesIdTwo");
-            return (Criteria) this;
-        }
-
-        public Criteria andSitemesIdTwoBetween(String value1, String value2) {
-            addCriterion("siteMes_id_two between", value1, value2, "sitemesIdTwo");
-            return (Criteria) this;
-        }
-
-        public Criteria andSitemesIdTwoNotBetween(String value1, String value2) {
-            addCriterion("siteMes_id_two not between", value1, value2, "sitemesIdTwo");
+        public Criteria andSitemesIdNotBetween(String value1, String value2) {
+            addCriterion("siteMes_id not between", value1, value2, "sitemesId");
             return (Criteria) this;
         }
 

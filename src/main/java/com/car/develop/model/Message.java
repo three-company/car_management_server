@@ -5,102 +5,98 @@ import lombok.Data;
 
 /**
  * @author  zxs
- * @date  2020/5/13 11:06 上午
+ * @date  2020/5/13 4:35 下午
  */
+
 /**
-    * 出车信息
-    */
+ * 出车信息
+ */
 @Data
 public class Message {
     private String id;
 
     /**
-    * 出车时间
-    */
+     * 出车时间
+     */
     private Date startTime;
 
     /**
-    * 出车结束时间
-    */
+     * 出车结束时间
+     */
     private Date endTime;
 
     /**
-    * 车id（车牌号）
-    */
+     * 车id（车牌号）
+     */
     private String carId;
 
     /**
-    * 司机id（登记信息司机）
-    */
+     * 司机id（登记信息司机）
+     */
     private String driverId;
 
     /**
-    * 行驶地点id1
-    */
-    private String sitemesIdOne;
+     * 行驶地点id1
+     */
+    private String sitemesId;
 
     /**
-    * 行驶地点id2
-    */
-    private String sitemesIdTwo;
-
-    /**
-    * 燃油费
-    */
+     * 燃油费
+     */
     private String fuelCharge;
 
     /**
-    * 过路费
-    */
+     * 过路费
+     */
     private String toll;
 
     /**
-    * 罚款
-    */
+     * 罚款
+     */
     private String fine;
 
     /**
-    * 饭费
-    */
+     * 饭费
+     */
     private String eatMoney;
 
     /**
-    * 住宿费
-    */
+     * 住宿费
+     */
     private String hotelMoney;
 
     /**
-    * 信息费
-    */
+     * 信息费
+     */
     private String messageMoney;
 
     /**
-    * 煤管费
-    */
+     * 煤管费
+     */
     private String coalMoney;
 
     /**
-    * 装卸费
-    */
+     * 装卸费
+     */
     private String handMoney;
 
     /**
-    * 修车费
-    */
+     * 修车费
+     */
     private String repairCarMoney;
 
     /**
-    * 其他开销
-    */
+     * 其他开销
+     */
     private String elseCost;
 
     /**
-    * 拍照
-    */
+     * 拍照
+     */
     private String image;
 
     /**
-    * 备注各种详细信息
-    */
+     * 备注各种详细信息
+     */
     private String comment;
 }

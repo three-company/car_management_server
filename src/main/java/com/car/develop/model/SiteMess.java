@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * @author  zxs
- * @date  2020/5/13 3:15 下午
+ * @date  2020/5/13 4:29 下午
  */
 
 /**
@@ -17,40 +17,56 @@ public class SiteMess {
     /**
      * 起始地点
      */
-    private String startSite;
+    private String startSiteOne;
 
     /**
      * 目的地
      */
-    private String endSite;
+    private String endSiteOne;
 
     /**
      * 物质名称
      */
-    private String matterName;
+    private String matterNameOne;
 
     /**
      * 重量
      */
-    private String weight;
+    private String weightOne;
 
     /**
      * 运费总额
      */
-    private String freightTotal;
+    private String freightTotalOne;
 
     /**
      * 实收金额
      */
-    private String receivedMoney;
+    private String receivedMoneyOne;
 
     /**
      * 欠款
      */
-    private String debtMoney;
+    private String debtMoneyOne;
 
     /**
      * 每吨运费
      */
-    private String freight;
+    private String freightOne;
+
+    private String startSiteTwo;
+
+    private String endSiteTwo;
+
+    private String matterNameTwo;
+
+    private String weightTwo;
+
+    private String freightTotalTwo;
+
+    private String receivedMoneyTwo;
+
+    private String debtMoneyTwo;
+
+    private String freightTwo;
 }

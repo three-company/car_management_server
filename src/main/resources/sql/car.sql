@@ -146,8 +146,7 @@ CREATE TABLE `message` (
   `end_time` timestamp NOT NULL COMMENT '出车结束时间',
   `car_id` varchar(32) NOT NULL COMMENT '车id（车牌号）',
   `driver_id` varchar(32) NOT NULL COMMENT '司机id（登记信息司机）',
-  `siteMes_id_one` varchar(32) NOT NULL COMMENT '行驶地点id1',
-  `siteMes_id_two` varchar(32) DEFAULT NULL COMMENT '行驶地点id2',
+  `siteMes_id` varchar(32) NOT NULL COMMENT '行驶地点id1',
   `fuel_charge` varchar(255) NOT NULL DEFAULT '0' COMMENT '燃油费',
   `toll` varchar(20) NOT NULL DEFAULT '0' COMMENT '过路费',
   `fine` varchar(20) NOT NULL DEFAULT '0' COMMENT '罚款',
@@ -212,14 +211,22 @@ DROP TABLE IF EXISTS `site_mess`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `site_mess` (
   `id` varchar(32) NOT NULL,
-  `start_site` varchar(20) NOT NULL COMMENT '起始地点',
-  `end_site` varchar(20) NOT NULL COMMENT '目的地',
-  `matter_name` varchar(20) NOT NULL COMMENT '物质名称',
-  `weight` varchar(20) NOT NULL COMMENT '重量',
-  `freight_total` varchar(255) DEFAULT NULL COMMENT '运费总额',
-  `received_money` varchar(255) NOT NULL COMMENT '实收金额',
-  `debt_money` varchar(20) NOT NULL DEFAULT '0' COMMENT '欠款',
-  `freight` varchar(20) NOT NULL COMMENT '每吨运费',
+  `start_site_one` varchar(20) NOT NULL COMMENT '起始地点',
+  `end_site_one` varchar(20) NOT NULL COMMENT '目的地',
+  `matter_name_one` varchar(20) NOT NULL COMMENT '物质名称',
+  `weight_one` varchar(20) NOT NULL COMMENT '重量',
+  `freight_total_one` varchar(255) DEFAULT NULL COMMENT '运费总额',
+  `received_money_one` varchar(255) NOT NULL COMMENT '实收金额',
+  `debt_money_one` varchar(20) NOT NULL DEFAULT '0' COMMENT '欠款',
+  `freight_one` varchar(20) NOT NULL COMMENT '每吨运费',
+  `start_site_two` varchar(20) DEFAULT NULL,
+  `end_site_two` varchar(20) DEFAULT NULL,
+  `matter_name_two` varchar(20) DEFAULT NULL,
+  `weight_two` varchar(20) DEFAULT NULL,
+  `freight_total_two` varchar(20) DEFAULT NULL,
+  `received_money_two` varchar(255) DEFAULT NULL,
+  `debt_money_two` varchar(20) NOT NULL DEFAULT '0',
+  `freight_two` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `site_mess_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='行驶地点';
@@ -272,4 +279,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-13 15:17:12
+-- Dump completed on 2020-05-13 16:40:32

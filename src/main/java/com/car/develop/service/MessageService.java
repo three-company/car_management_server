@@ -1,13 +1,18 @@
 package com.car.develop.service;
 
 import java.util.List;
+
+import com.car.develop.model.MessTotal;
 import com.car.develop.model.MessageExample;
 import com.car.develop.model.Message;
-    /**
- * @author  zxs
- * @date  2020/5/13 11:06 上午
+import com.car.develop.model.SiteMess;
+import com.car.develop.util.ResultMessage;
+
+/**
+ * @author zxs
+ * @date 2020/5/13 11:06 上午
  */
-public interface MessageService{
+public interface MessageService {
 
 
     long countByExample(MessageExample example);
@@ -24,12 +29,16 @@ public interface MessageService{
 
     Message selectByPrimaryKey(String id);
 
-    int updateByExampleSelective(Message record,MessageExample example);
+    int updateByExampleSelective(Message record, MessageExample example);
 
-    int updateByExample(Message record,MessageExample example);
+    int updateByExample(Message record, MessageExample example);
 
     int updateByPrimaryKeySelective(Message record);
 
     int updateByPrimaryKey(Message record);
 
+    ResultMessage<Message> insertone(Message message, SiteMess siteMess, MessTotal messTotal);
+
+
 }
+

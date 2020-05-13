@@ -9,8 +9,7 @@
     <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
     <result column="car_id" jdbcType="VARCHAR" property="carId" />
     <result column="driver_id" jdbcType="VARCHAR" property="driverId" />
-    <result column="siteMes_id_one" jdbcType="VARCHAR" property="sitemesIdOne" />
-    <result column="siteMes_id_two" jdbcType="VARCHAR" property="sitemesIdTwo" />
+    <result column="siteMes_id" jdbcType="VARCHAR" property="sitemesId" />
     <result column="fuel_charge" jdbcType="VARCHAR" property="fuelCharge" />
     <result column="toll" jdbcType="VARCHAR" property="toll" />
     <result column="fine" jdbcType="VARCHAR" property="fine" />
@@ -86,8 +85,8 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, start_time, end_time, car_id, driver_id, siteMes_id_one, siteMes_id_two, fuel_charge, 
-    toll, fine, eat_money, hotel_money, message_money, coal_money, hand_money, repair_car_money, 
+    id, start_time, end_time, car_id, driver_id, siteMes_id, fuel_charge, toll, fine, 
+    eat_money, hotel_money, message_money, coal_money, hand_money, repair_car_money, 
     else_cost, image, `comment`
   </sql>
   <select id="selectByExample" parameterType="com.car.develop.model.MessageExample" resultMap="BaseResultMap">
@@ -127,19 +126,19 @@
   <insert id="insert" parameterType="com.car.develop.model.Message">
     <!--@mbg.generated-->
     insert into message (id, start_time, end_time, 
-      car_id, driver_id, siteMes_id_one, 
-      siteMes_id_two, fuel_charge, toll, 
-      fine, eat_money, hotel_money, 
-      message_money, coal_money, hand_money, 
-      repair_car_money, else_cost, image, 
-      `comment`)
+      car_id, driver_id, siteMes_id, 
+      fuel_charge, toll, fine, 
+      eat_money, hotel_money, message_money, 
+      coal_money, hand_money, repair_car_money, 
+      else_cost, image, `comment`
+      )
     values (#{id,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
-      #{carId,jdbcType=VARCHAR}, #{driverId,jdbcType=VARCHAR}, #{sitemesIdOne,jdbcType=VARCHAR}, 
-      #{sitemesIdTwo,jdbcType=VARCHAR}, #{fuelCharge,jdbcType=VARCHAR}, #{toll,jdbcType=VARCHAR}, 
-      #{fine,jdbcType=VARCHAR}, #{eatMoney,jdbcType=VARCHAR}, #{hotelMoney,jdbcType=VARCHAR}, 
-      #{messageMoney,jdbcType=VARCHAR}, #{coalMoney,jdbcType=VARCHAR}, #{handMoney,jdbcType=VARCHAR}, 
-      #{repairCarMoney,jdbcType=VARCHAR}, #{elseCost,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
-      #{comment,jdbcType=VARCHAR})
+      #{carId,jdbcType=VARCHAR}, #{driverId,jdbcType=VARCHAR}, #{sitemesId,jdbcType=VARCHAR}, 
+      #{fuelCharge,jdbcType=VARCHAR}, #{toll,jdbcType=VARCHAR}, #{fine,jdbcType=VARCHAR}, 
+      #{eatMoney,jdbcType=VARCHAR}, #{hotelMoney,jdbcType=VARCHAR}, #{messageMoney,jdbcType=VARCHAR}, 
+      #{coalMoney,jdbcType=VARCHAR}, #{handMoney,jdbcType=VARCHAR}, #{repairCarMoney,jdbcType=VARCHAR}, 
+      #{elseCost,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.car.develop.model.Message">
     <!--@mbg.generated-->
@@ -160,11 +159,8 @@
       <if test="driverId != null">
         driver_id,
       </if>
-      <if test="sitemesIdOne != null">
-        siteMes_id_one,
-      </if>
-      <if test="sitemesIdTwo != null">
-        siteMes_id_two,
+      <if test="sitemesId != null">
+        siteMes_id,
       </if>
       <if test="fuelCharge != null">
         fuel_charge,
@@ -219,11 +215,8 @@
       <if test="driverId != null">
         #{driverId,jdbcType=VARCHAR},
       </if>
-      <if test="sitemesIdOne != null">
-        #{sitemesIdOne,jdbcType=VARCHAR},
-      </if>
-      <if test="sitemesIdTwo != null">
-        #{sitemesIdTwo,jdbcType=VARCHAR},
+      <if test="sitemesId != null">
+        #{sitemesId,jdbcType=VARCHAR},
       </if>
       <if test="fuelCharge != null">
         #{fuelCharge,jdbcType=VARCHAR},
@@ -289,11 +282,8 @@
       <if test="record.driverId != null">
         driver_id = #{record.driverId,jdbcType=VARCHAR},
       </if>
-      <if test="record.sitemesIdOne != null">
-        siteMes_id_one = #{record.sitemesIdOne,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sitemesIdTwo != null">
-        siteMes_id_two = #{record.sitemesIdTwo,jdbcType=VARCHAR},
+      <if test="record.sitemesId != null">
+        siteMes_id = #{record.sitemesId,jdbcType=VARCHAR},
       </if>
       <if test="record.fuelCharge != null">
         fuel_charge = #{record.fuelCharge,jdbcType=VARCHAR},
@@ -344,8 +334,7 @@
       end_time = #{record.endTime,jdbcType=TIMESTAMP},
       car_id = #{record.carId,jdbcType=VARCHAR},
       driver_id = #{record.driverId,jdbcType=VARCHAR},
-      siteMes_id_one = #{record.sitemesIdOne,jdbcType=VARCHAR},
-      siteMes_id_two = #{record.sitemesIdTwo,jdbcType=VARCHAR},
+      siteMes_id = #{record.sitemesId,jdbcType=VARCHAR},
       fuel_charge = #{record.fuelCharge,jdbcType=VARCHAR},
       toll = #{record.toll,jdbcType=VARCHAR},
       fine = #{record.fine,jdbcType=VARCHAR},
@@ -378,11 +367,8 @@
       <if test="driverId != null">
         driver_id = #{driverId,jdbcType=VARCHAR},
       </if>
-      <if test="sitemesIdOne != null">
-        siteMes_id_one = #{sitemesIdOne,jdbcType=VARCHAR},
-      </if>
-      <if test="sitemesIdTwo != null">
-        siteMes_id_two = #{sitemesIdTwo,jdbcType=VARCHAR},
+      <if test="sitemesId != null">
+        siteMes_id = #{sitemesId,jdbcType=VARCHAR},
       </if>
       <if test="fuelCharge != null">
         fuel_charge = #{fuelCharge,jdbcType=VARCHAR},
@@ -430,8 +416,7 @@
       end_time = #{endTime,jdbcType=TIMESTAMP},
       car_id = #{carId,jdbcType=VARCHAR},
       driver_id = #{driverId,jdbcType=VARCHAR},
-      siteMes_id_one = #{sitemesIdOne,jdbcType=VARCHAR},
-      siteMes_id_two = #{sitemesIdTwo,jdbcType=VARCHAR},
+      siteMes_id = #{sitemesId,jdbcType=VARCHAR},
       fuel_charge = #{fuelCharge,jdbcType=VARCHAR},
       toll = #{toll,jdbcType=VARCHAR},
       fine = #{fine,jdbcType=VARCHAR},

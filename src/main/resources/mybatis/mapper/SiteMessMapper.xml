@@ -5,14 +5,22 @@
     <!--@mbg.generated-->
     <!--@Table site_mess-->
     <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="start_site" jdbcType="VARCHAR" property="startSite" />
-    <result column="end_site" jdbcType="VARCHAR" property="endSite" />
-    <result column="matter_name" jdbcType="VARCHAR" property="matterName" />
-    <result column="weight" jdbcType="VARCHAR" property="weight" />
-    <result column="freight_total" jdbcType="VARCHAR" property="freightTotal" />
-    <result column="received_money" jdbcType="VARCHAR" property="receivedMoney" />
-    <result column="debt_money" jdbcType="VARCHAR" property="debtMoney" />
-    <result column="freight" jdbcType="VARCHAR" property="freight" />
+    <result column="start_site_one" jdbcType="VARCHAR" property="startSiteOne" />
+    <result column="end_site_one" jdbcType="VARCHAR" property="endSiteOne" />
+    <result column="matter_name_one" jdbcType="VARCHAR" property="matterNameOne" />
+    <result column="weight_one" jdbcType="VARCHAR" property="weightOne" />
+    <result column="freight_total_one" jdbcType="VARCHAR" property="freightTotalOne" />
+    <result column="received_money_one" jdbcType="VARCHAR" property="receivedMoneyOne" />
+    <result column="debt_money_one" jdbcType="VARCHAR" property="debtMoneyOne" />
+    <result column="freight_one" jdbcType="VARCHAR" property="freightOne" />
+    <result column="start_site_two" jdbcType="VARCHAR" property="startSiteTwo" />
+    <result column="end_site_two" jdbcType="VARCHAR" property="endSiteTwo" />
+    <result column="matter_name_two" jdbcType="VARCHAR" property="matterNameTwo" />
+    <result column="weight_two" jdbcType="VARCHAR" property="weightTwo" />
+    <result column="freight_total_two" jdbcType="VARCHAR" property="freightTotalTwo" />
+    <result column="received_money_two" jdbcType="VARCHAR" property="receivedMoneyTwo" />
+    <result column="debt_money_two" jdbcType="VARCHAR" property="debtMoneyTwo" />
+    <result column="freight_two" jdbcType="VARCHAR" property="freightTwo" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -76,8 +84,9 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, start_site, end_site, matter_name, weight, freight_total, received_money, debt_money, 
-    freight
+    id, start_site_one, end_site_one, matter_name_one, weight_one, freight_total_one, 
+    received_money_one, debt_money_one, freight_one, start_site_two, end_site_two, matter_name_two, 
+    weight_two, freight_total_two, received_money_two, debt_money_two, freight_two
   </sql>
   <select id="selectByExample" parameterType="com.car.develop.model.SiteMessExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -115,14 +124,18 @@
   </delete>
   <insert id="insert" parameterType="com.car.develop.model.SiteMess">
     <!--@mbg.generated-->
-    insert into site_mess (id, start_site, end_site, 
-      matter_name, weight, freight_total, 
-      received_money, debt_money, freight
-      )
-    values (#{id,jdbcType=VARCHAR}, #{startSite,jdbcType=VARCHAR}, #{endSite,jdbcType=VARCHAR}, 
-      #{matterName,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, #{freightTotal,jdbcType=VARCHAR}, 
-      #{receivedMoney,jdbcType=VARCHAR}, #{debtMoney,jdbcType=VARCHAR}, #{freight,jdbcType=VARCHAR}
-      )
+    insert into site_mess (id, start_site_one, end_site_one, 
+      matter_name_one, weight_one, freight_total_one, 
+      received_money_one, debt_money_one, freight_one, 
+      start_site_two, end_site_two, matter_name_two, 
+      weight_two, freight_total_two, received_money_two, 
+      debt_money_two, freight_two)
+    values (#{id,jdbcType=VARCHAR}, #{startSiteOne,jdbcType=VARCHAR}, #{endSiteOne,jdbcType=VARCHAR}, 
+      #{matterNameOne,jdbcType=VARCHAR}, #{weightOne,jdbcType=VARCHAR}, #{freightTotalOne,jdbcType=VARCHAR}, 
+      #{receivedMoneyOne,jdbcType=VARCHAR}, #{debtMoneyOne,jdbcType=VARCHAR}, #{freightOne,jdbcType=VARCHAR}, 
+      #{startSiteTwo,jdbcType=VARCHAR}, #{endSiteTwo,jdbcType=VARCHAR}, #{matterNameTwo,jdbcType=VARCHAR}, 
+      #{weightTwo,jdbcType=VARCHAR}, #{freightTotalTwo,jdbcType=VARCHAR}, #{receivedMoneyTwo,jdbcType=VARCHAR}, 
+      #{debtMoneyTwo,jdbcType=VARCHAR}, #{freightTwo,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.car.develop.model.SiteMess">
     <!--@mbg.generated-->
@@ -131,58 +144,106 @@
       <if test="id != null">
         id,
       </if>
-      <if test="startSite != null">
-        start_site,
+      <if test="startSiteOne != null">
+        start_site_one,
       </if>
-      <if test="endSite != null">
-        end_site,
+      <if test="endSiteOne != null">
+        end_site_one,
       </if>
-      <if test="matterName != null">
-        matter_name,
+      <if test="matterNameOne != null">
+        matter_name_one,
       </if>
-      <if test="weight != null">
-        weight,
+      <if test="weightOne != null">
+        weight_one,
       </if>
-      <if test="freightTotal != null">
-        freight_total,
+      <if test="freightTotalOne != null">
+        freight_total_one,
       </if>
-      <if test="receivedMoney != null">
-        received_money,
+      <if test="receivedMoneyOne != null">
+        received_money_one,
       </if>
-      <if test="debtMoney != null">
-        debt_money,
+      <if test="debtMoneyOne != null">
+        debt_money_one,
       </if>
-      <if test="freight != null">
-        freight,
+      <if test="freightOne != null">
+        freight_one,
+      </if>
+      <if test="startSiteTwo != null">
+        start_site_two,
+      </if>
+      <if test="endSiteTwo != null">
+        end_site_two,
+      </if>
+      <if test="matterNameTwo != null">
+        matter_name_two,
+      </if>
+      <if test="weightTwo != null">
+        weight_two,
+      </if>
+      <if test="freightTotalTwo != null">
+        freight_total_two,
+      </if>
+      <if test="receivedMoneyTwo != null">
+        received_money_two,
+      </if>
+      <if test="debtMoneyTwo != null">
+        debt_money_two,
+      </if>
+      <if test="freightTwo != null">
+        freight_two,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=VARCHAR},
       </if>
-      <if test="startSite != null">
-        #{startSite,jdbcType=VARCHAR},
+      <if test="startSiteOne != null">
+        #{startSiteOne,jdbcType=VARCHAR},
       </if>
-      <if test="endSite != null">
-        #{endSite,jdbcType=VARCHAR},
+      <if test="endSiteOne != null">
+        #{endSiteOne,jdbcType=VARCHAR},
       </if>
-      <if test="matterName != null">
-        #{matterName,jdbcType=VARCHAR},
+      <if test="matterNameOne != null">
+        #{matterNameOne,jdbcType=VARCHAR},
       </if>
-      <if test="weight != null">
-        #{weight,jdbcType=VARCHAR},
+      <if test="weightOne != null">
+        #{weightOne,jdbcType=VARCHAR},
       </if>
-      <if test="freightTotal != null">
-        #{freightTotal,jdbcType=VARCHAR},
+      <if test="freightTotalOne != null">
+        #{freightTotalOne,jdbcType=VARCHAR},
       </if>
-      <if test="receivedMoney != null">
-        #{receivedMoney,jdbcType=VARCHAR},
+      <if test="receivedMoneyOne != null">
+        #{receivedMoneyOne,jdbcType=VARCHAR},
       </if>
-      <if test="debtMoney != null">
-        #{debtMoney,jdbcType=VARCHAR},
+      <if test="debtMoneyOne != null">
+        #{debtMoneyOne,jdbcType=VARCHAR},
       </if>
-      <if test="freight != null">
-        #{freight,jdbcType=VARCHAR},
+      <if test="freightOne != null">
+        #{freightOne,jdbcType=VARCHAR},
+      </if>
+      <if test="startSiteTwo != null">
+        #{startSiteTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="endSiteTwo != null">
+        #{endSiteTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="matterNameTwo != null">
+        #{matterNameTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="weightTwo != null">
+        #{weightTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="freightTotalTwo != null">
+        #{freightTotalTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="receivedMoneyTwo != null">
+        #{receivedMoneyTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="debtMoneyTwo != null">
+        #{debtMoneyTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="freightTwo != null">
+        #{freightTwo,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -200,29 +261,53 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.startSite != null">
-        start_site = #{record.startSite,jdbcType=VARCHAR},
+      <if test="record.startSiteOne != null">
+        start_site_one = #{record.startSiteOne,jdbcType=VARCHAR},
       </if>
-      <if test="record.endSite != null">
-        end_site = #{record.endSite,jdbcType=VARCHAR},
+      <if test="record.endSiteOne != null">
+        end_site_one = #{record.endSiteOne,jdbcType=VARCHAR},
       </if>
-      <if test="record.matterName != null">
-        matter_name = #{record.matterName,jdbcType=VARCHAR},
+      <if test="record.matterNameOne != null">
+        matter_name_one = #{record.matterNameOne,jdbcType=VARCHAR},
       </if>
-      <if test="record.weight != null">
-        weight = #{record.weight,jdbcType=VARCHAR},
+      <if test="record.weightOne != null">
+        weight_one = #{record.weightOne,jdbcType=VARCHAR},
       </if>
-      <if test="record.freightTotal != null">
-        freight_total = #{record.freightTotal,jdbcType=VARCHAR},
+      <if test="record.freightTotalOne != null">
+        freight_total_one = #{record.freightTotalOne,jdbcType=VARCHAR},
       </if>
-      <if test="record.receivedMoney != null">
-        received_money = #{record.receivedMoney,jdbcType=VARCHAR},
+      <if test="record.receivedMoneyOne != null">
+        received_money_one = #{record.receivedMoneyOne,jdbcType=VARCHAR},
       </if>
-      <if test="record.debtMoney != null">
-        debt_money = #{record.debtMoney,jdbcType=VARCHAR},
+      <if test="record.debtMoneyOne != null">
+        debt_money_one = #{record.debtMoneyOne,jdbcType=VARCHAR},
       </if>
-      <if test="record.freight != null">
-        freight = #{record.freight,jdbcType=VARCHAR},
+      <if test="record.freightOne != null">
+        freight_one = #{record.freightOne,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startSiteTwo != null">
+        start_site_two = #{record.startSiteTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.endSiteTwo != null">
+        end_site_two = #{record.endSiteTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.matterNameTwo != null">
+        matter_name_two = #{record.matterNameTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weightTwo != null">
+        weight_two = #{record.weightTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.freightTotalTwo != null">
+        freight_total_two = #{record.freightTotalTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receivedMoneyTwo != null">
+        received_money_two = #{record.receivedMoneyTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.debtMoneyTwo != null">
+        debt_money_two = #{record.debtMoneyTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.freightTwo != null">
+        freight_two = #{record.freightTwo,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -233,14 +318,22 @@
     <!--@mbg.generated-->
     update site_mess
     set id = #{record.id,jdbcType=VARCHAR},
-      start_site = #{record.startSite,jdbcType=VARCHAR},
-      end_site = #{record.endSite,jdbcType=VARCHAR},
-      matter_name = #{record.matterName,jdbcType=VARCHAR},
-      weight = #{record.weight,jdbcType=VARCHAR},
-      freight_total = #{record.freightTotal,jdbcType=VARCHAR},
-      received_money = #{record.receivedMoney,jdbcType=VARCHAR},
-      debt_money = #{record.debtMoney,jdbcType=VARCHAR},
-      freight = #{record.freight,jdbcType=VARCHAR}
+      start_site_one = #{record.startSiteOne,jdbcType=VARCHAR},
+      end_site_one = #{record.endSiteOne,jdbcType=VARCHAR},
+      matter_name_one = #{record.matterNameOne,jdbcType=VARCHAR},
+      weight_one = #{record.weightOne,jdbcType=VARCHAR},
+      freight_total_one = #{record.freightTotalOne,jdbcType=VARCHAR},
+      received_money_one = #{record.receivedMoneyOne,jdbcType=VARCHAR},
+      debt_money_one = #{record.debtMoneyOne,jdbcType=VARCHAR},
+      freight_one = #{record.freightOne,jdbcType=VARCHAR},
+      start_site_two = #{record.startSiteTwo,jdbcType=VARCHAR},
+      end_site_two = #{record.endSiteTwo,jdbcType=VARCHAR},
+      matter_name_two = #{record.matterNameTwo,jdbcType=VARCHAR},
+      weight_two = #{record.weightTwo,jdbcType=VARCHAR},
+      freight_total_two = #{record.freightTotalTwo,jdbcType=VARCHAR},
+      received_money_two = #{record.receivedMoneyTwo,jdbcType=VARCHAR},
+      debt_money_two = #{record.debtMoneyTwo,jdbcType=VARCHAR},
+      freight_two = #{record.freightTwo,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -249,29 +342,53 @@
     <!--@mbg.generated-->
     update site_mess
     <set>
-      <if test="startSite != null">
-        start_site = #{startSite,jdbcType=VARCHAR},
+      <if test="startSiteOne != null">
+        start_site_one = #{startSiteOne,jdbcType=VARCHAR},
       </if>
-      <if test="endSite != null">
-        end_site = #{endSite,jdbcType=VARCHAR},
+      <if test="endSiteOne != null">
+        end_site_one = #{endSiteOne,jdbcType=VARCHAR},
       </if>
-      <if test="matterName != null">
-        matter_name = #{matterName,jdbcType=VARCHAR},
+      <if test="matterNameOne != null">
+        matter_name_one = #{matterNameOne,jdbcType=VARCHAR},
       </if>
-      <if test="weight != null">
-        weight = #{weight,jdbcType=VARCHAR},
+      <if test="weightOne != null">
+        weight_one = #{weightOne,jdbcType=VARCHAR},
       </if>
-      <if test="freightTotal != null">
-        freight_total = #{freightTotal,jdbcType=VARCHAR},
+      <if test="freightTotalOne != null">
+        freight_total_one = #{freightTotalOne,jdbcType=VARCHAR},
       </if>
-      <if test="receivedMoney != null">
-        received_money = #{receivedMoney,jdbcType=VARCHAR},
+      <if test="receivedMoneyOne != null">
+        received_money_one = #{receivedMoneyOne,jdbcType=VARCHAR},
       </if>
-      <if test="debtMoney != null">
-        debt_money = #{debtMoney,jdbcType=VARCHAR},
+      <if test="debtMoneyOne != null">
+        debt_money_one = #{debtMoneyOne,jdbcType=VARCHAR},
       </if>
-      <if test="freight != null">
-        freight = #{freight,jdbcType=VARCHAR},
+      <if test="freightOne != null">
+        freight_one = #{freightOne,jdbcType=VARCHAR},
+      </if>
+      <if test="startSiteTwo != null">
+        start_site_two = #{startSiteTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="endSiteTwo != null">
+        end_site_two = #{endSiteTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="matterNameTwo != null">
+        matter_name_two = #{matterNameTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="weightTwo != null">
+        weight_two = #{weightTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="freightTotalTwo != null">
+        freight_total_two = #{freightTotalTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="receivedMoneyTwo != null">
+        received_money_two = #{receivedMoneyTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="debtMoneyTwo != null">
+        debt_money_two = #{debtMoneyTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="freightTwo != null">
+        freight_two = #{freightTwo,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
@@ -279,14 +396,22 @@
   <update id="updateByPrimaryKey" parameterType="com.car.develop.model.SiteMess">
     <!--@mbg.generated-->
     update site_mess
-    set start_site = #{startSite,jdbcType=VARCHAR},
-      end_site = #{endSite,jdbcType=VARCHAR},
-      matter_name = #{matterName,jdbcType=VARCHAR},
-      weight = #{weight,jdbcType=VARCHAR},
-      freight_total = #{freightTotal,jdbcType=VARCHAR},
-      received_money = #{receivedMoney,jdbcType=VARCHAR},
-      debt_money = #{debtMoney,jdbcType=VARCHAR},
-      freight = #{freight,jdbcType=VARCHAR}
+    set start_site_one = #{startSiteOne,jdbcType=VARCHAR},
+      end_site_one = #{endSiteOne,jdbcType=VARCHAR},
+      matter_name_one = #{matterNameOne,jdbcType=VARCHAR},
+      weight_one = #{weightOne,jdbcType=VARCHAR},
+      freight_total_one = #{freightTotalOne,jdbcType=VARCHAR},
+      received_money_one = #{receivedMoneyOne,jdbcType=VARCHAR},
+      debt_money_one = #{debtMoneyOne,jdbcType=VARCHAR},
+      freight_one = #{freightOne,jdbcType=VARCHAR},
+      start_site_two = #{startSiteTwo,jdbcType=VARCHAR},
+      end_site_two = #{endSiteTwo,jdbcType=VARCHAR},
+      matter_name_two = #{matterNameTwo,jdbcType=VARCHAR},
+      weight_two = #{weightTwo,jdbcType=VARCHAR},
+      freight_total_two = #{freightTotalTwo,jdbcType=VARCHAR},
+      received_money_two = #{receivedMoneyTwo,jdbcType=VARCHAR},
+      debt_money_two = #{debtMoneyTwo,jdbcType=VARCHAR},
+      freight_two = #{freightTwo,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>
