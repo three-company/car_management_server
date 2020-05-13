@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.car.develop.mapper.DriverMapper">
+  <resultMap id="BaseResultMap" type="com.car.develop.model.Driver">
+    <!--@mbg.generated-->
+    <!--@Table driver-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="age" jdbcType="VARCHAR" property="age" />
+    <result column="card_num" jdbcType="VARCHAR" property="cardNum" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="driving_years" jdbcType="VARCHAR" property="drivingYears" />
+    <result column="driving_license_type" jdbcType="VARCHAR" property="drivingLicenseType" />
+    <result column="entry_time" jdbcType="TIMESTAMP" property="entryTime" />
+    <result column="leave_time" jdbcType="TIMESTAMP" property="leaveTime" />
+    <result column="salary" jdbcType="VARCHAR" property="salary" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, mobile, age, card_num, sex, driving_years, driving_license_type, entry_time, 
+    leave_time, salary, user_id
+  </sql>
+  <select id="selectByExample" parameterType="com.car.develop.model.DriverExample" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from driver
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from driver
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from driver
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.car.develop.model.DriverExample">
+    <!--@mbg.generated-->
+    delete from driver
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.car.develop.model.Driver">
+    <!--@mbg.generated-->
+    insert into driver (id, `name`, mobile, 
+      age, card_num, sex, 
+      driving_years, driving_license_type, entry_time, 
+      leave_time, salary, user_id
+      )
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{age,jdbcType=VARCHAR}, #{cardNum,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{drivingYears,jdbcType=VARCHAR}, #{drivingLicenseType,jdbcType=VARCHAR}, #{entryTime,jdbcType=TIMESTAMP}, 
+      #{leaveTime,jdbcType=TIMESTAMP}, #{salary,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.car.develop.model.Driver">
+    <!--@mbg.generated-->
+    insert into driver
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="cardNum != null">
+        card_num,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="drivingYears != null">
+        driving_years,
+      </if>
+      <if test="drivingLicenseType != null">
+        driving_license_type,
+      </if>
+      <if test="entryTime != null">
+        entry_time,
+      </if>
+      <if test="leaveTime != null">
+        leave_time,
+      </if>
+      <if test="salary != null">
+        salary,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNum != null">
+        #{cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingYears != null">
+        #{drivingYears,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicenseType != null">
+        #{drivingLicenseType,jdbcType=VARCHAR},
+      </if>
+      <if test="entryTime != null">
+        #{entryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="leaveTime != null">
+        #{leaveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salary != null">
+        #{salary,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.car.develop.model.DriverExample" resultType="java.lang.Long">
+    <!--@mbg.generated-->
+    select count(*) from driver
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbg.generated-->
+    update driver
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        `name` = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobile != null">
+        mobile = #{record.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.age != null">
+        age = #{record.age,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardNum != null">
+        card_num = #{record.cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        sex = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.drivingYears != null">
+        driving_years = #{record.drivingYears,jdbcType=VARCHAR},
+      </if>
+      <if test="record.drivingLicenseType != null">
+        driving_license_type = #{record.drivingLicenseType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entryTime != null">
+        entry_time = #{record.entryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.leaveTime != null">
+        leave_time = #{record.leaveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.salary != null">
+        salary = #{record.salary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbg.generated-->
+    update driver
+    set id = #{record.id,jdbcType=VARCHAR},
+      `name` = #{record.name,jdbcType=VARCHAR},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
+      age = #{record.age,jdbcType=VARCHAR},
+      card_num = #{record.cardNum,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=VARCHAR},
+      driving_years = #{record.drivingYears,jdbcType=VARCHAR},
+      driving_license_type = #{record.drivingLicenseType,jdbcType=VARCHAR},
+      entry_time = #{record.entryTime,jdbcType=TIMESTAMP},
+      leave_time = #{record.leaveTime,jdbcType=TIMESTAMP},
+      salary = #{record.salary,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.car.develop.model.Driver">
+    <!--@mbg.generated-->
+    update driver
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNum != null">
+        card_num = #{cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingYears != null">
+        driving_years = #{drivingYears,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicenseType != null">
+        driving_license_type = #{drivingLicenseType,jdbcType=VARCHAR},
+      </if>
+      <if test="entryTime != null">
+        entry_time = #{entryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="leaveTime != null">
+        leave_time = #{leaveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salary != null">
+        salary = #{salary,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.car.develop.model.Driver">
+    <!--@mbg.generated-->
+    update driver
+    set `name` = #{name,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      age = #{age,jdbcType=VARCHAR},
+      card_num = #{cardNum,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      driving_years = #{drivingYears,jdbcType=VARCHAR},
+      driving_license_type = #{drivingLicenseType,jdbcType=VARCHAR},
+      entry_time = #{entryTime,jdbcType=TIMESTAMP},
+      leave_time = #{leaveTime,jdbcType=TIMESTAMP},
+      salary = #{salary,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.car.develop.mapper.SiteMessMapper">
+  <resultMap id="BaseResultMap" type="com.car.develop.model.SiteMess">
+    <!--@mbg.generated-->
+    <!--@Table site_mess-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="start_site" jdbcType="VARCHAR" property="startSite" />
+    <result column="end_site" jdbcType="VARCHAR" property="endSite" />
+    <result column="matter_name" jdbcType="VARCHAR" property="matterName" />
+    <result column="weight" jdbcType="VARCHAR" property="weight" />
+    <result column="freight_total" jdbcType="VARCHAR" property="freightTotal" />
+    <result column="received_money" jdbcType="VARCHAR" property="receivedMoney" />
+    <result column="debt_money" jdbcType="VARCHAR" property="debtMoney" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, start_site, end_site, matter_name, weight, freight_total, received_money, debt_money
+  </sql>
+  <select id="selectByExample" parameterType="com.car.develop.model.SiteMessExample" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from site_mess
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from site_mess
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from site_mess
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.car.develop.model.SiteMessExample">
+    <!--@mbg.generated-->
+    delete from site_mess
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.car.develop.model.SiteMess">
+    <!--@mbg.generated-->
+    insert into site_mess (id, start_site, end_site, 
+      matter_name, weight, freight_total, 
+      received_money, debt_money)
+    values (#{id,jdbcType=VARCHAR}, #{startSite,jdbcType=VARCHAR}, #{endSite,jdbcType=VARCHAR}, 
+      #{matterName,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, #{freightTotal,jdbcType=VARCHAR}, 
+      #{receivedMoney,jdbcType=VARCHAR}, #{debtMoney,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.car.develop.model.SiteMess">
+    <!--@mbg.generated-->
+    insert into site_mess
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="startSite != null">
+        start_site,
+      </if>
+      <if test="endSite != null">
+        end_site,
+      </if>
+      <if test="matterName != null">
+        matter_name,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="freightTotal != null">
+        freight_total,
+      </if>
+      <if test="receivedMoney != null">
+        received_money,
+      </if>
+      <if test="debtMoney != null">
+        debt_money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="startSite != null">
+        #{startSite,jdbcType=VARCHAR},
+      </if>
+      <if test="endSite != null">
+        #{endSite,jdbcType=VARCHAR},
+      </if>
+      <if test="matterName != null">
+        #{matterName,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="freightTotal != null">
+        #{freightTotal,jdbcType=VARCHAR},
+      </if>
+      <if test="receivedMoney != null">
+        #{receivedMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="debtMoney != null">
+        #{debtMoney,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.car.develop.model.SiteMessExample" resultType="java.lang.Long">
+    <!--@mbg.generated-->
+    select count(*) from site_mess
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbg.generated-->
+    update site_mess
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startSite != null">
+        start_site = #{record.startSite,jdbcType=VARCHAR},
+      </if>
+      <if test="record.endSite != null">
+        end_site = #{record.endSite,jdbcType=VARCHAR},
+      </if>
+      <if test="record.matterName != null">
+        matter_name = #{record.matterName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weight != null">
+        weight = #{record.weight,jdbcType=VARCHAR},
+      </if>
+      <if test="record.freightTotal != null">
+        freight_total = #{record.freightTotal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receivedMoney != null">
+        received_money = #{record.receivedMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="record.debtMoney != null">
+        debt_money = #{record.debtMoney,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbg.generated-->
+    update site_mess
+    set id = #{record.id,jdbcType=VARCHAR},
+      start_site = #{record.startSite,jdbcType=VARCHAR},
+      end_site = #{record.endSite,jdbcType=VARCHAR},
+      matter_name = #{record.matterName,jdbcType=VARCHAR},
+      weight = #{record.weight,jdbcType=VARCHAR},
+      freight_total = #{record.freightTotal,jdbcType=VARCHAR},
+      received_money = #{record.receivedMoney,jdbcType=VARCHAR},
+      debt_money = #{record.debtMoney,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.car.develop.model.SiteMess">
+    <!--@mbg.generated-->
+    update site_mess
+    <set>
+      <if test="startSite != null">
+        start_site = #{startSite,jdbcType=VARCHAR},
+      </if>
+      <if test="endSite != null">
+        end_site = #{endSite,jdbcType=VARCHAR},
+      </if>
+      <if test="matterName != null">
+        matter_name = #{matterName,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="freightTotal != null">
+        freight_total = #{freightTotal,jdbcType=VARCHAR},
+      </if>
+      <if test="receivedMoney != null">
+        received_money = #{receivedMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="debtMoney != null">
+        debt_money = #{debtMoney,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.car.develop.model.SiteMess">
+    <!--@mbg.generated-->
+    update site_mess
+    set start_site = #{startSite,jdbcType=VARCHAR},
+      end_site = #{endSite,jdbcType=VARCHAR},
+      matter_name = #{matterName,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=VARCHAR},
+      freight_total = #{freightTotal,jdbcType=VARCHAR},
+      received_money = #{receivedMoney,jdbcType=VARCHAR},
+      debt_money = #{debtMoney,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
