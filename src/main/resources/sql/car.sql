@@ -116,7 +116,7 @@ CREATE TABLE `mess_total` (
   `id` varchar(32) NOT NULL,
   `message_id` varchar(32) NOT NULL COMMENT '信息表id',
   `carry_money` varchar(20) NOT NULL DEFAULT '0' COMMENT '带现金',
-  `freight` varchar(20) NOT NULL COMMENT '每吨运费',
+  `freight` varchar(20) NOT NULL COMMENT '每吨运费(保留字段)',
   `hand_in` varchar(20) NOT NULL DEFAULT '0' COMMENT '交回',
   `total_income` varchar(255) NOT NULL COMMENT '总收入',
   `money` varchar(20) DEFAULT NULL COMMENT '收支金额',
@@ -219,6 +219,7 @@ CREATE TABLE `site_mess` (
   `freight_total` varchar(255) DEFAULT NULL COMMENT '运费总额',
   `received_money` varchar(255) NOT NULL COMMENT '实收金额',
   `debt_money` varchar(20) NOT NULL DEFAULT '0' COMMENT '欠款',
+  `freight` varchar(20) NOT NULL COMMENT '每吨运费',
   PRIMARY KEY (`id`),
   UNIQUE KEY `site_mess_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='行驶地点';
@@ -271,4 +272,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-13 11:14:42
+-- Dump completed on 2020-05-13 15:17:12
