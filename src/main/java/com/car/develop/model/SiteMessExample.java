@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * @author  zxs
- * @date  2020/5/13 11:06 上午
+ * @date  2020/5/13 3:15 下午
  */
 public class SiteMessExample {
     protected String orderByClause;
@@ -665,6 +665,76 @@ public class SiteMessExample {
 
         public Criteria andDebtMoneyNotBetween(String value1, String value2) {
             addCriterion("debt_money not between", value1, value2, "debtMoney");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightIsNull() {
+            addCriterion("freight is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightIsNotNull() {
+            addCriterion("freight is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightEqualTo(String value) {
+            addCriterion("freight =", value, "freight");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightNotEqualTo(String value) {
+            addCriterion("freight <>", value, "freight");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightGreaterThan(String value) {
+            addCriterion("freight >", value, "freight");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightGreaterThanOrEqualTo(String value) {
+            addCriterion("freight >=", value, "freight");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightLessThan(String value) {
+            addCriterion("freight <", value, "freight");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightLessThanOrEqualTo(String value) {
+            addCriterion("freight <=", value, "freight");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightLike(String value) {
+            addCriterion("freight like", value, "freight");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightNotLike(String value) {
+            addCriterion("freight not like", value, "freight");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightIn(List<String> values) {
+            addCriterion("freight in", values, "freight");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightNotIn(List<String> values) {
+            addCriterion("freight not in", values, "freight");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightBetween(String value1, String value2) {
+            addCriterion("freight between", value1, value2, "freight");
+            return (Criteria) this;
+        }
+
+        public Criteria andFreightNotBetween(String value1, String value2) {
+            addCriterion("freight not between", value1, value2, "freight");
             return (Criteria) this;
         }
     }

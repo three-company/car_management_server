@@ -3,11 +3,12 @@ package com.car.develop.service;
 import java.util.List;
 import com.car.develop.model.SiteMessExample;
 import com.car.develop.model.SiteMess;
-    /**
- * @author  zxs
- * @date  2020/5/13 11:06 上午
+
+/**
+ * @author zxs
+ * @date 2020/5/13 11:06 上午
  */
-public interface SiteMessService{
+public interface SiteMessService {
 
 
     long countByExample(SiteMessExample example);
@@ -24,12 +25,13 @@ public interface SiteMessService{
 
     SiteMess selectByPrimaryKey(String id);
 
-    int updateByExampleSelective(SiteMess record,SiteMessExample example);
+    int updateByExampleSelective(SiteMess record, SiteMessExample example);
 
-    int updateByExample(SiteMess record,SiteMessExample example);
+    int updateByExample(SiteMess record, SiteMessExample example);
 
     int updateByPrimaryKeySelective(SiteMess record);
 
     int updateByPrimaryKey(SiteMess record);
 
 }
+

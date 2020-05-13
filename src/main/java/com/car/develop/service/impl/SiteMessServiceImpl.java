@@ -7,12 +7,13 @@ import java.util.List;
 import com.car.develop.model.SiteMessExample;
 import com.car.develop.model.SiteMess;
 import com.car.develop.service.SiteMessService;
+
 /**
- * @author  zxs
- * @date  2020/5/13 11:06 上午
+ * @author zxs
+ * @date 2020/5/13 11:06 上午
  */
 @Service
-public class SiteMessServiceImpl implements SiteMessService{
+public class SiteMessServiceImpl implements SiteMessService {
 
     @Resource
     private SiteMessMapper siteMessMapper;
@@ -53,13 +54,13 @@ public class SiteMessServiceImpl implements SiteMessService{
     }
 
     @Override
-    public int updateByExampleSelective(SiteMess record,SiteMessExample example) {
-        return siteMessMapper.updateByExampleSelective(record,example);
+    public int updateByExampleSelective(SiteMess record, SiteMessExample example) {
+        return siteMessMapper.updateByExampleSelective(record, example);
     }
 
     @Override
-    public int updateByExample(SiteMess record,SiteMessExample example) {
-        return siteMessMapper.updateByExample(record,example);
+    public int updateByExample(SiteMess record, SiteMessExample example) {
+        return siteMessMapper.updateByExample(record, example);
     }
 
     @Override
@@ -73,3 +74,4 @@ public class SiteMessServiceImpl implements SiteMessService{
     }
 
 }
+

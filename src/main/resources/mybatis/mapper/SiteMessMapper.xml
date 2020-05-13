@@ -12,6 +12,7 @@
     <result column="freight_total" jdbcType="VARCHAR" property="freightTotal" />
     <result column="received_money" jdbcType="VARCHAR" property="receivedMoney" />
     <result column="debt_money" jdbcType="VARCHAR" property="debtMoney" />
+    <result column="freight" jdbcType="VARCHAR" property="freight" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -75,7 +76,8 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, start_site, end_site, matter_name, weight, freight_total, received_money, debt_money
+    id, start_site, end_site, matter_name, weight, freight_total, received_money, debt_money, 
+    freight
   </sql>
   <select id="selectByExample" parameterType="com.car.develop.model.SiteMessExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -115,10 +117,12 @@
     <!--@mbg.generated-->
     insert into site_mess (id, start_site, end_site, 
       matter_name, weight, freight_total, 
-      received_money, debt_money)
+      received_money, debt_money, freight
+      )
     values (#{id,jdbcType=VARCHAR}, #{startSite,jdbcType=VARCHAR}, #{endSite,jdbcType=VARCHAR}, 
       #{matterName,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, #{freightTotal,jdbcType=VARCHAR}, 
-      #{receivedMoney,jdbcType=VARCHAR}, #{debtMoney,jdbcType=VARCHAR})
+      #{receivedMoney,jdbcType=VARCHAR}, #{debtMoney,jdbcType=VARCHAR}, #{freight,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.car.develop.model.SiteMess">
     <!--@mbg.generated-->
@@ -148,6 +152,9 @@
       <if test="debtMoney != null">
         debt_money,
       </if>
+      <if test="freight != null">
+        freight,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -173,6 +180,9 @@
       </if>
       <if test="debtMoney != null">
         #{debtMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="freight != null">
+        #{freight,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -211,6 +221,9 @@
       <if test="record.debtMoney != null">
         debt_money = #{record.debtMoney,jdbcType=VARCHAR},
       </if>
+      <if test="record.freight != null">
+        freight = #{record.freight,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -226,7 +239,8 @@
       weight = #{record.weight,jdbcType=VARCHAR},
       freight_total = #{record.freightTotal,jdbcType=VARCHAR},
       received_money = #{record.receivedMoney,jdbcType=VARCHAR},
-      debt_money = #{record.debtMoney,jdbcType=VARCHAR}
+      debt_money = #{record.debtMoney,jdbcType=VARCHAR},
+      freight = #{record.freight,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -256,6 +270,9 @@
       <if test="debtMoney != null">
         debt_money = #{debtMoney,jdbcType=VARCHAR},
       </if>
+      <if test="freight != null">
+        freight = #{freight,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -268,7 +285,8 @@
       weight = #{weight,jdbcType=VARCHAR},
       freight_total = #{freightTotal,jdbcType=VARCHAR},
       received_money = #{receivedMoney,jdbcType=VARCHAR},
-      debt_money = #{debtMoney,jdbcType=VARCHAR}
+      debt_money = #{debtMoney,jdbcType=VARCHAR},
+      freight = #{freight,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>
