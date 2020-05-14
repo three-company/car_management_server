@@ -120,6 +120,8 @@ CREATE TABLE `mess_total` (
   `hand_in` varchar(20) NOT NULL DEFAULT '0' COMMENT '交回',
   `total_income` varchar(255) NOT NULL COMMENT '总收入',
   `money` varchar(20) DEFAULT NULL COMMENT '收支金额',
+  `total_pay` varchar(255) NOT NULL COMMENT '总开销',
+  `return` varchar(255) NOT NULL COMMENT '利润',
   UNIQUE KEY `mess_total_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='每趟车计算';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -225,7 +227,7 @@ CREATE TABLE `site_mess` (
   `weight_two` varchar(20) DEFAULT NULL,
   `freight_total_two` varchar(20) DEFAULT NULL,
   `received_money_two` varchar(255) DEFAULT NULL,
-  `debt_money_two` varchar(20) NOT NULL DEFAULT '0',
+  `debt_money_two` varchar(20) DEFAULT '0',
   `freight_two` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `site_mess_id_uindex` (`id`)
@@ -279,4 +281,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-13 16:40:32
+-- Dump completed on 2020-05-14  9:45:38

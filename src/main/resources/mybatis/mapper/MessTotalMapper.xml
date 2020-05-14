@@ -11,6 +11,8 @@
     <result column="hand_in" jdbcType="VARCHAR" property="handIn" />
     <result column="total_income" jdbcType="VARCHAR" property="totalIncome" />
     <result column="money" jdbcType="VARCHAR" property="money" />
+    <result column="total_pay" jdbcType="VARCHAR" property="totalPay" />
+    <result column="total_return" jdbcType="VARCHAR" property="totalReturn" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -74,7 +76,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, message_id, carry_money, freight, hand_in, total_income, money
+    id, message_id, carry_money, freight, hand_in, total_income, money, total_pay, total_return
   </sql>
   <select id="selectByExample" parameterType="com.car.develop.model.MessTotalExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -102,10 +104,12 @@
     <!--@mbg.generated-->
     insert into mess_total (id, message_id, carry_money, 
       freight, hand_in, total_income, 
-      money)
+      money, total_pay, total_return
+      )
     values (#{id,jdbcType=VARCHAR}, #{messageId,jdbcType=VARCHAR}, #{carryMoney,jdbcType=VARCHAR}, 
       #{freight,jdbcType=VARCHAR}, #{handIn,jdbcType=VARCHAR}, #{totalIncome,jdbcType=VARCHAR}, 
-      #{money,jdbcType=VARCHAR})
+      #{money,jdbcType=VARCHAR}, #{totalPay,jdbcType=VARCHAR}, #{totalReturn,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.car.develop.model.MessTotal">
     <!--@mbg.generated-->
@@ -132,6 +136,12 @@
       <if test="money != null">
         money,
       </if>
+      <if test="totalPay != null">
+        total_pay,
+      </if>
+      <if test="totalReturn != null">
+        total_return,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -154,6 +164,12 @@
       </if>
       <if test="money != null">
         #{money,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPay != null">
+        #{totalPay,jdbcType=VARCHAR},
+      </if>
+      <if test="totalReturn != null">
+        #{totalReturn,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -189,6 +205,12 @@
       <if test="record.money != null">
         money = #{record.money,jdbcType=VARCHAR},
       </if>
+      <if test="record.totalPay != null">
+        total_pay = #{record.totalPay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalReturn != null">
+        total_return = #{record.totalReturn,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -203,7 +225,9 @@
       freight = #{record.freight,jdbcType=VARCHAR},
       hand_in = #{record.handIn,jdbcType=VARCHAR},
       total_income = #{record.totalIncome,jdbcType=VARCHAR},
-      money = #{record.money,jdbcType=VARCHAR}
+      money = #{record.money,jdbcType=VARCHAR},
+      total_pay = #{record.totalPay,jdbcType=VARCHAR},
+      total_return = #{record.totalReturn,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

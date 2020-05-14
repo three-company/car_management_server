@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * @author  zxs
- * @date  2020/5/13 11:06 上午
+ * @date  2020/5/14 9:48 上午
  */
 public class MessTotalExample {
     protected String orderByClause;
@@ -595,6 +595,146 @@ public class MessTotalExample {
 
         public Criteria andMoneyNotBetween(String value1, String value2) {
             addCriterion("money not between", value1, value2, "money");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalPayIsNull() {
+            addCriterion("total_pay is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalPayIsNotNull() {
+            addCriterion("total_pay is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalPayEqualTo(String value) {
+            addCriterion("total_pay =", value, "totalPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalPayNotEqualTo(String value) {
+            addCriterion("total_pay <>", value, "totalPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalPayGreaterThan(String value) {
+            addCriterion("total_pay >", value, "totalPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalPayGreaterThanOrEqualTo(String value) {
+            addCriterion("total_pay >=", value, "totalPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalPayLessThan(String value) {
+            addCriterion("total_pay <", value, "totalPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalPayLessThanOrEqualTo(String value) {
+            addCriterion("total_pay <=", value, "totalPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalPayLike(String value) {
+            addCriterion("total_pay like", value, "totalPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalPayNotLike(String value) {
+            addCriterion("total_pay not like", value, "totalPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalPayIn(List<String> values) {
+            addCriterion("total_pay in", values, "totalPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalPayNotIn(List<String> values) {
+            addCriterion("total_pay not in", values, "totalPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalPayBetween(String value1, String value2) {
+            addCriterion("total_pay between", value1, value2, "totalPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalPayNotBetween(String value1, String value2) {
+            addCriterion("total_pay not between", value1, value2, "totalPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalReturnIsNull() {
+            addCriterion("total_return is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalReturnIsNotNull() {
+            addCriterion("total_return is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalReturnEqualTo(String value) {
+            addCriterion("total_return =", value, "totalReturn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalReturnNotEqualTo(String value) {
+            addCriterion("total_return <>", value, "totalReturn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalReturnGreaterThan(String value) {
+            addCriterion("total_return >", value, "totalReturn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalReturnGreaterThanOrEqualTo(String value) {
+            addCriterion("total_return >=", value, "totalReturn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalReturnLessThan(String value) {
+            addCriterion("total_return <", value, "totalReturn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalReturnLessThanOrEqualTo(String value) {
+            addCriterion("total_return <=", value, "totalReturn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalReturnLike(String value) {
+            addCriterion("total_return like", value, "totalReturn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalReturnNotLike(String value) {
+            addCriterion("total_return not like", value, "totalReturn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalReturnIn(List<String> values) {
+            addCriterion("total_return in", values, "totalReturn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalReturnNotIn(List<String> values) {
+            addCriterion("total_return not in", values, "totalReturn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalReturnBetween(String value1, String value2) {
+            addCriterion("total_return between", value1, value2, "totalReturn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalReturnNotBetween(String value1, String value2) {
+            addCriterion("total_return not between", value1, value2, "totalReturn");
             return (Criteria) this;
         }
     }

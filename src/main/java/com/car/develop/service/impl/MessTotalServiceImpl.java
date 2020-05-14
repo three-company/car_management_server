@@ -7,12 +7,13 @@ import com.car.develop.mapper.MessTotalMapper;
 import com.car.develop.model.MessTotal;
 import java.util.List;
 import com.car.develop.service.MessTotalService;
+
 /**
- * @author  zxs
- * @date  2020/5/13 11:06 上午
+ * @author zxs
+ * @date 2020/5/13 11:06 上午
  */
 @Service
-public class MessTotalServiceImpl implements MessTotalService{
+public class MessTotalServiceImpl implements MessTotalService {
 
     @Resource
     private MessTotalMapper messTotalMapper;
@@ -43,13 +44,15 @@ public class MessTotalServiceImpl implements MessTotalService{
     }
 
     @Override
-    public int updateByExampleSelective(MessTotal record,MessTotalExample example) {
-        return messTotalMapper.updateByExampleSelective(record,example);
+    public int updateByExampleSelective(MessTotal record, MessTotalExample example) {
+        return messTotalMapper.updateByExampleSelective(record, example);
     }
 
     @Override
-    public int updateByExample(MessTotal record,MessTotalExample example) {
-        return messTotalMapper.updateByExample(record,example);
+    public int updateByExample(MessTotal record, MessTotalExample example) {
+        return messTotalMapper.updateByExample(record, example);
     }
 
 }
+
+
