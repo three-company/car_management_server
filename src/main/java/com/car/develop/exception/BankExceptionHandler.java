@@ -1,7 +1,7 @@
 package com.car.develop.exception;
 
 
-import com.i2test.vb4.util.ResultMessage;
+import com.car.develop.util.ResultMessage;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

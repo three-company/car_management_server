@@ -6,8 +6,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * @author  zxs
- * @date  2020/5/13 11:06 上午
+ * @author zxs
+ * @date 2020/5/14 9:43 上午
  */
 public interface MessTotalMapper {
     long countByExample(MessTotalExample example);
