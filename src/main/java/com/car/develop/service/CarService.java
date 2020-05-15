@@ -3,11 +3,12 @@ package com.car.develop.service;
 import java.util.List;
 import com.car.develop.model.CarExample;
 import com.car.develop.model.Car;
-    /**
- * @author  zxs
- * @date  2020/5/13 11:06 上午
+
+/**
+ * @author zxs
+ * @date 2020/5/13 11:06 上午
  */
-public interface CarService{
+public interface CarService {
 
 
     long countByExample(CarExample example);
@@ -24,12 +25,13 @@ public interface CarService{
 
     Car selectByPrimaryKey(String id);
 
-    int updateByExampleSelective(Car record,CarExample example);
+    int updateByExampleSelective(Car record, CarExample example);
 
-    int updateByExample(Car record,CarExample example);
+    int updateByExample(Car record, CarExample example);
 
     int updateByPrimaryKeySelective(Car record);
 
     int updateByPrimaryKey(Car record);
 
 }
+

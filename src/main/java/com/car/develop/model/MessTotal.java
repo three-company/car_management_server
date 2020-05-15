@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * @author  zxs
- * @date  2020/5/14 9:48 上午
+ * @date  2020/5/15 11:10 上午
  */
 
 /**
@@ -53,4 +53,6 @@ public class MessTotal {
      * 利润
      */
     private String totalReturn;
+
+    private String delFlag;
 }

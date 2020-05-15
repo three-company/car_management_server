@@ -7,12 +7,13 @@ import com.car.develop.model.CarExample;
 import com.car.develop.model.Car;
 import com.car.develop.mapper.CarMapper;
 import com.car.develop.service.CarService;
+
 /**
- * @author  zxs
- * @date  2020/5/13 11:06 上午
+ * @author zxs
+ * @date 2020/5/13 11:06 上午
  */
 @Service
-public class CarServiceImpl implements CarService{
+public class CarServiceImpl implements CarService {
 
     @Resource
     private CarMapper carMapper;
@@ -53,13 +54,13 @@ public class CarServiceImpl implements CarService{
     }
 
     @Override
-    public int updateByExampleSelective(Car record,CarExample example) {
-        return carMapper.updateByExampleSelective(record,example);
+    public int updateByExampleSelective(Car record, CarExample example) {
+        return carMapper.updateByExampleSelective(record, example);
     }
 
     @Override
-    public int updateByExample(Car record,CarExample example) {
-        return carMapper.updateByExample(record,example);
+    public int updateByExample(Car record, CarExample example) {
+        return carMapper.updateByExample(record, example);
     }
 
     @Override
@@ -73,3 +74,4 @@ public class CarServiceImpl implements CarService{
     }
 
 }
+

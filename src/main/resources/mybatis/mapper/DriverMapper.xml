@@ -16,6 +16,7 @@
     <result column="leave_time" jdbcType="TIMESTAMP" property="leaveTime" />
     <result column="salary" jdbcType="VARCHAR" property="salary" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -80,7 +81,7 @@
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     id, `name`, mobile, age, card_num, sex, driving_years, driving_license_type, entry_time, 
-    leave_time, salary, user_id
+    leave_time, salary, user_id, del_flag
   </sql>
   <select id="selectByExample" parameterType="com.car.develop.model.DriverExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -121,13 +122,13 @@
     insert into driver (id, `name`, mobile, 
       age, card_num, sex, 
       driving_years, driving_license_type, entry_time, 
-      leave_time, salary, user_id
-      )
+      leave_time, salary, user_id, 
+      del_flag)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
       #{age,jdbcType=VARCHAR}, #{cardNum,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
       #{drivingYears,jdbcType=VARCHAR}, #{drivingLicenseType,jdbcType=VARCHAR}, #{entryTime,jdbcType=TIMESTAMP}, 
-      #{leaveTime,jdbcType=TIMESTAMP}, #{salary,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}
-      )
+      #{leaveTime,jdbcType=TIMESTAMP}, #{salary,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.car.develop.model.Driver">
     <!--@mbg.generated-->
@@ -169,6 +170,9 @@
       <if test="userId != null">
         user_id,
       </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -206,6 +210,9 @@
       </if>
       <if test="userId != null">
         #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -256,6 +263,9 @@
       <if test="record.userId != null">
         user_id = #{record.userId,jdbcType=VARCHAR},
       </if>
+      <if test="record.delFlag != null">
+        del_flag = #{record.delFlag,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -275,7 +285,8 @@
       entry_time = #{record.entryTime,jdbcType=TIMESTAMP},
       leave_time = #{record.leaveTime,jdbcType=TIMESTAMP},
       salary = #{record.salary,jdbcType=VARCHAR},
-      user_id = #{record.userId,jdbcType=VARCHAR}
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      del_flag = #{record.delFlag,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -317,6 +328,9 @@
       <if test="userId != null">
         user_id = #{userId,jdbcType=VARCHAR},
       </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -333,7 +347,8 @@
       entry_time = #{entryTime,jdbcType=TIMESTAMP},
       leave_time = #{leaveTime,jdbcType=TIMESTAMP},
       salary = #{salary,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=VARCHAR}
+      user_id = #{userId,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

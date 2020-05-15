@@ -21,6 +21,7 @@
     <result column="received_money_two" jdbcType="VARCHAR" property="receivedMoneyTwo" />
     <result column="debt_money_two" jdbcType="VARCHAR" property="debtMoneyTwo" />
     <result column="freight_two" jdbcType="VARCHAR" property="freightTwo" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -86,7 +87,7 @@
     <!--@mbg.generated-->
     id, start_site_one, end_site_one, matter_name_one, weight_one, freight_total_one, 
     received_money_one, debt_money_one, freight_one, start_site_two, end_site_two, matter_name_two, 
-    weight_two, freight_total_two, received_money_two, debt_money_two, freight_two
+    weight_two, freight_total_two, received_money_two, debt_money_two, freight_two, del_flag
   </sql>
   <select id="selectByExample" parameterType="com.car.develop.model.SiteMessExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -129,13 +130,15 @@
       received_money_one, debt_money_one, freight_one, 
       start_site_two, end_site_two, matter_name_two, 
       weight_two, freight_total_two, received_money_two, 
-      debt_money_two, freight_two)
+      debt_money_two, freight_two, del_flag
+      )
     values (#{id,jdbcType=VARCHAR}, #{startSiteOne,jdbcType=VARCHAR}, #{endSiteOne,jdbcType=VARCHAR}, 
       #{matterNameOne,jdbcType=VARCHAR}, #{weightOne,jdbcType=VARCHAR}, #{freightTotalOne,jdbcType=VARCHAR}, 
       #{receivedMoneyOne,jdbcType=VARCHAR}, #{debtMoneyOne,jdbcType=VARCHAR}, #{freightOne,jdbcType=VARCHAR}, 
       #{startSiteTwo,jdbcType=VARCHAR}, #{endSiteTwo,jdbcType=VARCHAR}, #{matterNameTwo,jdbcType=VARCHAR}, 
       #{weightTwo,jdbcType=VARCHAR}, #{freightTotalTwo,jdbcType=VARCHAR}, #{receivedMoneyTwo,jdbcType=VARCHAR}, 
-      #{debtMoneyTwo,jdbcType=VARCHAR}, #{freightTwo,jdbcType=VARCHAR})
+      #{debtMoneyTwo,jdbcType=VARCHAR}, #{freightTwo,jdbcType=VARCHAR}, #{delFlag,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.car.develop.model.SiteMess">
     <!--@mbg.generated-->
@@ -192,6 +195,9 @@
       <if test="freightTwo != null">
         freight_two,
       </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -244,6 +250,9 @@
       </if>
       <if test="freightTwo != null">
         #{freightTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -309,6 +318,9 @@
       <if test="record.freightTwo != null">
         freight_two = #{record.freightTwo,jdbcType=VARCHAR},
       </if>
+      <if test="record.delFlag != null">
+        del_flag = #{record.delFlag,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -333,7 +345,8 @@
       freight_total_two = #{record.freightTotalTwo,jdbcType=VARCHAR},
       received_money_two = #{record.receivedMoneyTwo,jdbcType=VARCHAR},
       debt_money_two = #{record.debtMoneyTwo,jdbcType=VARCHAR},
-      freight_two = #{record.freightTwo,jdbcType=VARCHAR}
+      freight_two = #{record.freightTwo,jdbcType=VARCHAR},
+      del_flag = #{record.delFlag,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -390,6 +403,9 @@
       <if test="freightTwo != null">
         freight_two = #{freightTwo,jdbcType=VARCHAR},
       </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -411,7 +427,8 @@
       freight_total_two = #{freightTotalTwo,jdbcType=VARCHAR},
       received_money_two = #{receivedMoneyTwo,jdbcType=VARCHAR},
       debt_money_two = #{debtMoneyTwo,jdbcType=VARCHAR},
-      freight_two = #{freightTwo,jdbcType=VARCHAR}
+      freight_two = #{freightTwo,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

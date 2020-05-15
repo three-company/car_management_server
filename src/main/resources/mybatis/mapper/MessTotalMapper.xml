@@ -13,6 +13,7 @@
     <result column="money" jdbcType="VARCHAR" property="money" />
     <result column="total_pay" jdbcType="VARCHAR" property="totalPay" />
     <result column="total_return" jdbcType="VARCHAR" property="totalReturn" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -76,7 +77,8 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, message_id, carry_money, freight, hand_in, total_income, money, total_pay, total_return
+    id, message_id, carry_money, freight, hand_in, total_income, money, total_pay, total_return, 
+    del_flag
   </sql>
   <select id="selectByExample" parameterType="com.car.develop.model.MessTotalExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -104,12 +106,12 @@
     <!--@mbg.generated-->
     insert into mess_total (id, message_id, carry_money, 
       freight, hand_in, total_income, 
-      money, total_pay, total_return
-      )
+      money, total_pay, total_return, 
+      del_flag)
     values (#{id,jdbcType=VARCHAR}, #{messageId,jdbcType=VARCHAR}, #{carryMoney,jdbcType=VARCHAR}, 
       #{freight,jdbcType=VARCHAR}, #{handIn,jdbcType=VARCHAR}, #{totalIncome,jdbcType=VARCHAR}, 
-      #{money,jdbcType=VARCHAR}, #{totalPay,jdbcType=VARCHAR}, #{totalReturn,jdbcType=VARCHAR}
-      )
+      #{money,jdbcType=VARCHAR}, #{totalPay,jdbcType=VARCHAR}, #{totalReturn,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.car.develop.model.MessTotal">
     <!--@mbg.generated-->
@@ -142,6 +144,9 @@
       <if test="totalReturn != null">
         total_return,
       </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -170,6 +175,9 @@
       </if>
       <if test="totalReturn != null">
         #{totalReturn,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -211,6 +219,9 @@
       <if test="record.totalReturn != null">
         total_return = #{record.totalReturn,jdbcType=VARCHAR},
       </if>
+      <if test="record.delFlag != null">
+        del_flag = #{record.delFlag,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -227,7 +238,8 @@
       total_income = #{record.totalIncome,jdbcType=VARCHAR},
       money = #{record.money,jdbcType=VARCHAR},
       total_pay = #{record.totalPay,jdbcType=VARCHAR},
-      total_return = #{record.totalReturn,jdbcType=VARCHAR}
+      total_return = #{record.totalReturn,jdbcType=VARCHAR},
+      del_flag = #{record.delFlag,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

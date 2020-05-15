@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * @author  zxs
- * @date  2020/5/13 4:29 下午
+ * @date  2020/5/15 11:10 上午
  */
 
 /**
@@ -69,4 +69,6 @@ public class SiteMess {
     private String debtMoneyTwo;
 
     private String freightTwo;
+
+    private String delFlag;
 }

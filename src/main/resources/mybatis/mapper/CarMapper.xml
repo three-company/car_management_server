@@ -10,6 +10,7 @@
     <result column="check_end_time" jdbcType="TIMESTAMP" property="checkEndTime" />
     <result column="insurance_start_time" jdbcType="TIMESTAMP" property="insuranceStartTime" />
     <result column="insurance_end_time" jdbcType="TIMESTAMP" property="insuranceEndTime" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -73,7 +74,8 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, car_num, check_start_time, check_end_time, insurance_start_time, insurance_end_time
+    id, car_num, check_start_time, check_end_time, insurance_start_time, insurance_end_time, 
+    del_flag
   </sql>
   <select id="selectByExample" parameterType="com.car.develop.model.CarExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -112,11 +114,11 @@
   <insert id="insert" parameterType="com.car.develop.model.Car">
     <!--@mbg.generated-->
     insert into car (id, car_num, check_start_time, 
-      check_end_time, insurance_start_time, insurance_end_time
-      )
+      check_end_time, insurance_start_time, insurance_end_time, 
+      del_flag)
     values (#{id,jdbcType=VARCHAR}, #{carNum,jdbcType=VARCHAR}, #{checkStartTime,jdbcType=TIMESTAMP}, 
-      #{checkEndTime,jdbcType=TIMESTAMP}, #{insuranceStartTime,jdbcType=TIMESTAMP}, #{insuranceEndTime,jdbcType=TIMESTAMP}
-      )
+      #{checkEndTime,jdbcType=TIMESTAMP}, #{insuranceStartTime,jdbcType=TIMESTAMP}, #{insuranceEndTime,jdbcType=TIMESTAMP}, 
+      #{delFlag,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.car.develop.model.Car">
     <!--@mbg.generated-->
@@ -140,6 +142,9 @@
       <if test="insuranceEndTime != null">
         insurance_end_time,
       </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -159,6 +164,9 @@
       </if>
       <if test="insuranceEndTime != null">
         #{insuranceEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -191,6 +199,9 @@
       <if test="record.insuranceEndTime != null">
         insurance_end_time = #{record.insuranceEndTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.delFlag != null">
+        del_flag = #{record.delFlag,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -204,7 +215,8 @@
       check_start_time = #{record.checkStartTime,jdbcType=TIMESTAMP},
       check_end_time = #{record.checkEndTime,jdbcType=TIMESTAMP},
       insurance_start_time = #{record.insuranceStartTime,jdbcType=TIMESTAMP},
-      insurance_end_time = #{record.insuranceEndTime,jdbcType=TIMESTAMP}
+      insurance_end_time = #{record.insuranceEndTime,jdbcType=TIMESTAMP},
+      del_flag = #{record.delFlag,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -228,6 +240,9 @@
       <if test="insuranceEndTime != null">
         insurance_end_time = #{insuranceEndTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -238,7 +253,8 @@
       check_start_time = #{checkStartTime,jdbcType=TIMESTAMP},
       check_end_time = #{checkEndTime,jdbcType=TIMESTAMP},
       insurance_start_time = #{insuranceStartTime,jdbcType=TIMESTAMP},
-      insurance_end_time = #{insuranceEndTime,jdbcType=TIMESTAMP}
+      insurance_end_time = #{insuranceEndTime,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

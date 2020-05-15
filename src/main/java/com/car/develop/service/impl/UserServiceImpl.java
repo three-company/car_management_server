@@ -7,12 +7,13 @@ import com.car.develop.model.UserExample;
 import com.car.develop.model.User;
 import com.car.develop.mapper.UserMapper;
 import com.car.develop.service.UserService;
+
 /**
- * @author  zxs
- * @date  2020/5/13 11:06 上午
+ * @author zxs
+ * @date 2020/5/13 11:06 上午
  */
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Resource
     private UserMapper userMapper;
@@ -53,13 +54,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public int updateByExampleSelective(User record,UserExample example) {
-        return userMapper.updateByExampleSelective(record,example);
+    public int updateByExampleSelective(User record, UserExample example) {
+        return userMapper.updateByExampleSelective(record, example);
     }
 
     @Override
-    public int updateByExample(User record,UserExample example) {
-        return userMapper.updateByExample(record,example);
+    public int updateByExample(User record, UserExample example) {
+        return userMapper.updateByExample(record, example);
     }
 
     @Override
@@ -73,3 +74,4 @@ public class UserServiceImpl implements UserService{
     }
 
 }
+

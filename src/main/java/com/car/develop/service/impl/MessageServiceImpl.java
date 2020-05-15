@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.UUID;
 
 import com.car.develop.service.MessageService;
 
@@ -90,8 +89,8 @@ public class MessageServiceImpl implements MessageService {
     }
 
     /*
-    * 添加出车信息
-    * */
+     * 添加出车信息
+     * */
     @Override
     public ResultMessage<Message> insertone(Message message, SiteMess siteMess, MessTotal messTotal) {
         //添加站点信息
@@ -101,8 +100,8 @@ public class MessageServiceImpl implements MessageService {
         BigDecimal weightTwo = new BigDecimal(siteMess.getWeightTwo());
         BigDecimal freightOne = new BigDecimal(siteMess.getFreightOne());
         BigDecimal freightTwo = new BigDecimal(siteMess.getFreightTwo());
-        BigDecimal freightTotalOne = weightOne.multiply(freightOne);
-        BigDecimal freightTotalTwo = weightTwo.multiply(freightTwo);
+        BigDecimal freightTotalOne = weightOne.multiply(freightOne).setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal freightTotalTwo = weightTwo.multiply(freightTwo).setScale(2, BigDecimal.ROUND_HALF_UP);
         siteMess.setFreightTotalOne(freightTotalOne.toString());
         siteMess.setFreightTotalTwo(freightTotalTwo.toString());
         int i = siteMessMapper.insert(siteMess);
@@ -113,8 +112,8 @@ public class MessageServiceImpl implements MessageService {
         CarExample carExample = new CarExample();
         carExample.createCriteria().andCarNumEqualTo(message.getCarId());
         List<Car> cars = carMapper.selectByExample(carExample);
-        if (cars.isEmpty()){
-            return new ResultMessage<>("11111","没找到该车的信息",null);
+        if (cars.isEmpty()) {
+            return new ResultMessage<>("11111", "没找到该车的信息", null);
         }
         Car car = cars.get(0);
 
@@ -122,8 +121,8 @@ public class MessageServiceImpl implements MessageService {
         DriverExample driverExample = new DriverExample();
         driverExample.createCriteria().andNameEqualTo(message.getDriverId());
         List<Driver> drivers = driverMapper.selectByExample(driverExample);
-        if (drivers.isEmpty()){
-            return new ResultMessage<>("11111","没找到改司机的信息",null);
+        if (drivers.isEmpty()) {
+            return new ResultMessage<>("11111", "没找到改司机的信息", null);
         }
         Driver driver = drivers.get(0);
 
@@ -134,17 +133,41 @@ public class MessageServiceImpl implements MessageService {
         message.setDriverId(driver.getId());
         message.setSitemesId(id);
         int i1 = messageMapper.insert(message);
-        if (i1 < 0){
-            return new ResultMessage<>("11111","添加信息失败",null);
+        if (i1 < 0) {
+            return new ResultMessage<>("11111", "添加信息失败", null);
         }
         String id3 = UUIDUtil.Uid;
         messTotal.setId(id3);
         messTotal.setMessageId(id2);
+        messTotal.setTotalIncome(freightTotalOne.add(freightTotalTwo).toString());
+        BigDecimal totalPay = new BigDecimal(message.getFuelCharge()).add(new BigDecimal(message.getToll()).add(new BigDecimal(message.getFine()).add(new BigDecimal(message.getEatMoney()).add(new BigDecimal(message.getHotelMoney()).add(new BigDecimal(message.getMessageMoney()).add(new BigDecimal(message.getCoalMoney()).add(new BigDecimal(message.getHandMoney()).add(new BigDecimal(message.getRepairCarMoney()).add(new BigDecimal(message.getElseCost()))))))))));
+        messTotal.setTotalPay(totalPay.toString());
+        messTotal.setTotalReturn(freightTotalOne.add(freightTotalTwo).subtract(totalPay).toString());
+        int i2 = messTotalMapper.insert(messTotal);
+        if (i2 < 0) {
+            return new ResultMessage<>("11111", "信息添加失败，请重试", null);
+        }
 
-        messTotalMapper.insert(messTotal);
-
-        return new  ResultMessage("000","成功","1");
+        return new ResultMessage("000", "信息添加成功", "1");
     }
 
+    /*
+     * 修改信息
+     * */
+    @Override
+    public ResultMessage<Message> updateone(Message message, SiteMess siteMess, MessTotal messTotal) {
+        MessageExample messageExample = new MessageExample();
+        messageExample.createCriteria().andIdEqualTo(message.getId());
+        List<Message> messages = messageMapper.selectByExample(messageExample);
+        if (messages.isEmpty()) {
+            return new ResultMessage<>("11111", "没找到该信息", null);
+        }
+        Message message1 = messages.get(0);
+
+        return null;
+    }
+
+
 }
+
 

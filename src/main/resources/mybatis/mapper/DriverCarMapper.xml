@@ -8,6 +8,7 @@
     <result column="car_id" jdbcType="VARCHAR" property="carId" />
     <result column="driver_id_one" jdbcType="VARCHAR" property="driverIdOne" />
     <result column="driver_id_two" jdbcType="VARCHAR" property="driverIdTwo" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -71,7 +72,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, car_id, driver_id_one, driver_id_two
+    id, car_id, driver_id_one, driver_id_two, del_flag
   </sql>
   <select id="selectByExample" parameterType="com.car.develop.model.DriverCarExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -110,9 +111,9 @@
   <insert id="insert" parameterType="com.car.develop.model.DriverCar">
     <!--@mbg.generated-->
     insert into driver_car (id, car_id, driver_id_one, 
-      driver_id_two)
+      driver_id_two, del_flag)
     values (#{id,jdbcType=VARCHAR}, #{carId,jdbcType=VARCHAR}, #{driverIdOne,jdbcType=VARCHAR}, 
-      #{driverIdTwo,jdbcType=VARCHAR})
+      #{driverIdTwo,jdbcType=VARCHAR}, #{delFlag,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.car.develop.model.DriverCar">
     <!--@mbg.generated-->
@@ -130,6 +131,9 @@
       <if test="driverIdTwo != null">
         driver_id_two,
       </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -143,6 +147,9 @@
       </if>
       <if test="driverIdTwo != null">
         #{driverIdTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -169,6 +176,9 @@
       <if test="record.driverIdTwo != null">
         driver_id_two = #{record.driverIdTwo,jdbcType=VARCHAR},
       </if>
+      <if test="record.delFlag != null">
+        del_flag = #{record.delFlag,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -180,7 +190,8 @@
     set id = #{record.id,jdbcType=VARCHAR},
       car_id = #{record.carId,jdbcType=VARCHAR},
       driver_id_one = #{record.driverIdOne,jdbcType=VARCHAR},
-      driver_id_two = #{record.driverIdTwo,jdbcType=VARCHAR}
+      driver_id_two = #{record.driverIdTwo,jdbcType=VARCHAR},
+      del_flag = #{record.delFlag,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -198,6 +209,9 @@
       <if test="driverIdTwo != null">
         driver_id_two = #{driverIdTwo,jdbcType=VARCHAR},
       </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -206,7 +220,8 @@
     update driver_car
     set car_id = #{carId,jdbcType=VARCHAR},
       driver_id_one = #{driverIdOne,jdbcType=VARCHAR},
-      driver_id_two = #{driverIdTwo,jdbcType=VARCHAR}
+      driver_id_two = #{driverIdTwo,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

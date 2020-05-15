@@ -22,6 +22,7 @@
     <result column="else_cost" jdbcType="VARCHAR" property="elseCost" />
     <result column="image" jdbcType="VARCHAR" property="image" />
     <result column="comment" jdbcType="VARCHAR" property="comment" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -87,7 +88,7 @@
     <!--@mbg.generated-->
     id, start_time, end_time, car_id, driver_id, siteMes_id, fuel_charge, toll, fine, 
     eat_money, hotel_money, message_money, coal_money, hand_money, repair_car_money, 
-    else_cost, image, `comment`
+    else_cost, image, `comment`, del_flag
   </sql>
   <select id="selectByExample" parameterType="com.car.develop.model.MessageExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -130,15 +131,15 @@
       fuel_charge, toll, fine, 
       eat_money, hotel_money, message_money, 
       coal_money, hand_money, repair_car_money, 
-      else_cost, image, `comment`
-      )
+      else_cost, image, `comment`, 
+      del_flag)
     values (#{id,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
       #{carId,jdbcType=VARCHAR}, #{driverId,jdbcType=VARCHAR}, #{sitemesId,jdbcType=VARCHAR}, 
       #{fuelCharge,jdbcType=VARCHAR}, #{toll,jdbcType=VARCHAR}, #{fine,jdbcType=VARCHAR}, 
       #{eatMoney,jdbcType=VARCHAR}, #{hotelMoney,jdbcType=VARCHAR}, #{messageMoney,jdbcType=VARCHAR}, 
       #{coalMoney,jdbcType=VARCHAR}, #{handMoney,jdbcType=VARCHAR}, #{repairCarMoney,jdbcType=VARCHAR}, 
-      #{elseCost,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}
-      )
+      #{elseCost,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.car.develop.model.Message">
     <!--@mbg.generated-->
@@ -198,6 +199,9 @@
       <if test="comment != null">
         `comment`,
       </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -253,6 +257,9 @@
       </if>
       <if test="comment != null">
         #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -321,6 +328,9 @@
       <if test="record.comment != null">
         `comment` = #{record.comment,jdbcType=VARCHAR},
       </if>
+      <if test="record.delFlag != null">
+        del_flag = #{record.delFlag,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -346,7 +356,8 @@
       repair_car_money = #{record.repairCarMoney,jdbcType=VARCHAR},
       else_cost = #{record.elseCost,jdbcType=VARCHAR},
       image = #{record.image,jdbcType=VARCHAR},
-      `comment` = #{record.comment,jdbcType=VARCHAR}
+      `comment` = #{record.comment,jdbcType=VARCHAR},
+      del_flag = #{record.delFlag,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -406,6 +417,9 @@
       <if test="comment != null">
         `comment` = #{comment,jdbcType=VARCHAR},
       </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -428,7 +442,8 @@
       repair_car_money = #{repairCarMoney,jdbcType=VARCHAR},
       else_cost = #{elseCost,jdbcType=VARCHAR},
       image = #{image,jdbcType=VARCHAR},
-      `comment` = #{comment,jdbcType=VARCHAR}
+      `comment` = #{comment,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -11,6 +11,7 @@
     <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
     <result column="advance" jdbcType="VARCHAR" property="advance" />
     <result column="advance_time" jdbcType="TIMESTAMP" property="advanceTime" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -74,7 +75,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, user_id, driver_id, actual_pay_salary, pay_time, advance, advance_time
+    id, user_id, driver_id, actual_pay_salary, pay_time, advance, advance_time, del_flag
   </sql>
   <select id="selectByExample" parameterType="com.car.develop.model.SalaryExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -114,10 +115,10 @@
     <!--@mbg.generated-->
     insert into salary (id, user_id, driver_id, 
       actual_pay_salary, pay_time, advance, 
-      advance_time)
+      advance_time, del_flag)
     values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{driverId,jdbcType=VARCHAR}, 
       #{actualPaySalary,jdbcType=VARCHAR}, #{payTime,jdbcType=TIMESTAMP}, #{advance,jdbcType=VARCHAR}, 
-      #{advanceTime,jdbcType=TIMESTAMP})
+      #{advanceTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.car.develop.model.Salary">
     <!--@mbg.generated-->
@@ -144,6 +145,9 @@
       <if test="advanceTime != null">
         advance_time,
       </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -166,6 +170,9 @@
       </if>
       <if test="advanceTime != null">
         #{advanceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -201,6 +208,9 @@
       <if test="record.advanceTime != null">
         advance_time = #{record.advanceTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.delFlag != null">
+        del_flag = #{record.delFlag,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -215,7 +225,8 @@
       actual_pay_salary = #{record.actualPaySalary,jdbcType=VARCHAR},
       pay_time = #{record.payTime,jdbcType=TIMESTAMP},
       advance = #{record.advance,jdbcType=VARCHAR},
-      advance_time = #{record.advanceTime,jdbcType=TIMESTAMP}
+      advance_time = #{record.advanceTime,jdbcType=TIMESTAMP},
+      del_flag = #{record.delFlag,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -242,6 +253,9 @@
       <if test="advanceTime != null">
         advance_time = #{advanceTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -253,7 +267,8 @@
       actual_pay_salary = #{actualPaySalary,jdbcType=VARCHAR},
       pay_time = #{payTime,jdbcType=TIMESTAMP},
       advance = #{advance,jdbcType=VARCHAR},
-      advance_time = #{advanceTime,jdbcType=TIMESTAMP}
+      advance_time = #{advanceTime,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

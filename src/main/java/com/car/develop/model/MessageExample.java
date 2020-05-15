@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author  zxs
- * @date  2020/5/13 4:35 下午
+ * @date  2020/5/15 11:10 上午
  */
 public class MessageExample {
     protected String orderByClause;
@@ -1346,6 +1346,76 @@ public class MessageExample {
 
         public Criteria andCommentNotBetween(String value1, String value2) {
             addCriterion("`comment` not between", value1, value2, "comment");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelFlagIsNull() {
+            addCriterion("del_flag is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelFlagIsNotNull() {
+            addCriterion("del_flag is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelFlagEqualTo(String value) {
+            addCriterion("del_flag =", value, "delFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelFlagNotEqualTo(String value) {
+            addCriterion("del_flag <>", value, "delFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelFlagGreaterThan(String value) {
+            addCriterion("del_flag >", value, "delFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelFlagGreaterThanOrEqualTo(String value) {
+            addCriterion("del_flag >=", value, "delFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelFlagLessThan(String value) {
+            addCriterion("del_flag <", value, "delFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelFlagLessThanOrEqualTo(String value) {
+            addCriterion("del_flag <=", value, "delFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelFlagLike(String value) {
+            addCriterion("del_flag like", value, "delFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelFlagNotLike(String value) {
+            addCriterion("del_flag not like", value, "delFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelFlagIn(List<String> values) {
+            addCriterion("del_flag in", values, "delFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelFlagNotIn(List<String> values) {
+            addCriterion("del_flag not in", values, "delFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelFlagBetween(String value1, String value2) {
+            addCriterion("del_flag between", value1, value2, "delFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelFlagNotBetween(String value1, String value2) {
+            addCriterion("del_flag not between", value1, value2, "delFlag");
             return (Criteria) this;
         }
     }

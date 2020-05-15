@@ -29,6 +29,7 @@ CREATE TABLE `car` (
   `check_end_time` timestamp NOT NULL COMMENT '检车到期时间',
   `insurance_start_time` timestamp NOT NULL COMMENT '保险开始时间',
   `insurance_end_time` timestamp NOT NULL COMMENT '保险到期时间',
+  `del_flag` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `car_car_num_uindex` (`car_num`),
   UNIQUE KEY `car_id_uindex` (`id`)
@@ -64,6 +65,7 @@ CREATE TABLE `driver` (
   `leave_time` timestamp NULL DEFAULT NULL COMMENT '离职时间',
   `salary` varchar(255) NOT NULL COMMENT '薪资',
   `user_id` varchar(32) DEFAULT NULL COMMENT '用户id',
+  `del_flag` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `driver_card_num_uindex` (`card_num`),
   UNIQUE KEY `driver_id_uindex` (`id`)
@@ -91,6 +93,7 @@ CREATE TABLE `driver_car` (
   `car_id` varchar(32) NOT NULL COMMENT '大车id',
   `driver_id_one` varchar(32) DEFAULT NULL COMMENT '主驾',
   `driver_id_two` varchar(32) DEFAULT NULL COMMENT '副驾',
+  `del_flag` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `driver_car_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='司机与大车';
@@ -121,7 +124,8 @@ CREATE TABLE `mess_total` (
   `total_income` varchar(255) NOT NULL COMMENT '总收入',
   `money` varchar(20) DEFAULT NULL COMMENT '收支金额',
   `total_pay` varchar(255) NOT NULL COMMENT '总开销',
-  `return` varchar(255) NOT NULL COMMENT '利润',
+  `total_return` varchar(255) NOT NULL COMMENT '利润',
+  `del_flag` varchar(2) DEFAULT NULL,
   UNIQUE KEY `mess_total_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='每趟车计算';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -161,6 +165,7 @@ CREATE TABLE `message` (
   `else_cost` varchar(20) NOT NULL DEFAULT '0' COMMENT '其他开销',
   `image` varchar(255) DEFAULT NULL COMMENT '拍照',
   `comment` varchar(255) DEFAULT NULL COMMENT '备注各种详细信息',
+  `del_flag` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `message_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='出车信息';
@@ -190,6 +195,7 @@ CREATE TABLE `salary` (
   `pay_time` timestamp NOT NULL COMMENT '结算日期',
   `advance` varchar(255) DEFAULT NULL COMMENT '预支',
   `advance_time` timestamp NOT NULL COMMENT '预支日期',
+  `del_flag` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `salary_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='结算薪资';
@@ -229,6 +235,7 @@ CREATE TABLE `site_mess` (
   `received_money_two` varchar(255) DEFAULT NULL,
   `debt_money_two` varchar(20) DEFAULT '0',
   `freight_two` varchar(20) DEFAULT NULL,
+  `del_flag` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `site_mess_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='行驶地点';
@@ -258,6 +265,7 @@ CREATE TABLE `user` (
   `register_time` timestamp NOT NULL COMMENT '注册时间',
   `end_time` timestamp NOT NULL COMMENT '到期时间',
   `status` varchar(2) DEFAULT NULL COMMENT '状态',
+  `del_flag` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户信息';
@@ -281,4 +289,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-14  9:45:38
+-- Dump completed on 2020-05-15 11:11:12

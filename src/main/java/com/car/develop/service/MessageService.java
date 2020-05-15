@@ -39,6 +39,7 @@ public interface MessageService {
 
     ResultMessage<Message> insertone(Message message, SiteMess siteMess, MessTotal messTotal);
 
-
+    ResultMessage<Message> updateone(Message message, SiteMess siteMess, MessTotal messTotal);
 }
+
 

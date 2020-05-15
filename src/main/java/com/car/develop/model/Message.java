@@ -5,7 +5,7 @@ import lombok.Data;
 
 /**
  * @author  zxs
- * @date  2020/5/13 4:35 下午
+ * @date  2020/5/15 11:10 上午
  */
 
 /**
@@ -99,4 +99,6 @@ public class Message {
      * 备注各种详细信息
      */
     private String comment;
+
+    private String delFlag;
 }

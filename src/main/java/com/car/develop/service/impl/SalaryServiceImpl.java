@@ -7,12 +7,13 @@ import com.car.develop.model.SalaryExample;
 import com.car.develop.mapper.SalaryMapper;
 import com.car.develop.model.Salary;
 import com.car.develop.service.SalaryService;
+
 /**
- * @author  zxs
- * @date  2020/5/13 11:06 上午
+ * @author zxs
+ * @date 2020/5/13 11:06 上午
  */
 @Service
-public class SalaryServiceImpl implements SalaryService{
+public class SalaryServiceImpl implements SalaryService {
 
     @Resource
     private SalaryMapper salaryMapper;
@@ -53,13 +54,13 @@ public class SalaryServiceImpl implements SalaryService{
     }
 
     @Override
-    public int updateByExampleSelective(Salary record,SalaryExample example) {
-        return salaryMapper.updateByExampleSelective(record,example);
+    public int updateByExampleSelective(Salary record, SalaryExample example) {
+        return salaryMapper.updateByExampleSelective(record, example);
     }
 
     @Override
-    public int updateByExample(Salary record,SalaryExample example) {
-        return salaryMapper.updateByExample(record,example);
+    public int updateByExample(Salary record, SalaryExample example) {
+        return salaryMapper.updateByExample(record, example);
     }
 
     @Override
@@ -73,3 +74,4 @@ public class SalaryServiceImpl implements SalaryService{
     }
 
 }
+
